@@ -78,7 +78,12 @@
     -  단일 연결 리스트에 비해 포인터를 하나 더 사용하여 메모리를 더 많이 사용
     -  단일 연결 리스트보다 포인터 관리가 복잡
 - 예시
+    <details><summary>이중 연결 리스트 예시</summary>
 
+    ![이중 연결 리스트 이미지](https://media.geeksforgeeks.org/wp-content/uploads/20240809123741/Insertion-at-the-End-in-Doubly-Linked-List-copy.webp)   
+    Image source : GeeksforGeeks
+
+    </details>
 
 #### 원형 연결 리스트 (Circular-Linked List)		
 - 정의 : 리스트의 마지막 노드가 헤드 노드를 가리켜서 노드들이 원형으로 연결되어 있는 리스트
@@ -91,7 +96,19 @@
 - 단점
     -  순환 구조로 인해 종료 조건을 명확히 하지 않으면 무한 루프에 빠질 위험이 있음
 - 예시
+    <details><summary>원형 연결 리스트 - 단일 연결 예시</summary>
 
+    ![원형 연결 리스트 이미지 - 단일 연결](https://media.geeksforgeeks.org/wp-content/uploads/20240806130914/Representation-of-circular-linked-list.webp)
+    Image source : GeeksforGeeks
+
+    </details>
+
+    <details><summary>원형 연결 리스트 - 이중 연결 예시</summary>
+
+    ![원형 연결 리스트 이미지 - 이중 연결](https://media.geeksforgeeks.org/wp-content/uploads/20240806145223/Representation-of-circular-doubly-linked-list.webp)
+    Image source : GeeksforGeeks
+
+    </details>
 
 #### 다중 연결 리스트 (Multi-Linked List)
 - 정의 : 앞의 연결 리스트들과 달리 단방향, 양방향으로 연결된 것이 아니라 각 노드가 여러개의 포인터를 가져 포인터들을 통해 여러 노드에 연결되어 있는 리스트
@@ -105,16 +122,27 @@
     - 다수의 포인터를 관리해야 하므로 삽입, 삭제, 탐색의 구현이 매우 복잡하고 포인터 관리가 부담스러움
     - 다수의 포인터를 사용하므로 타 연결 리스트들에 비해 메모리를 더 많이 사용
 - 예시
-  
+
+    <details><summary>다중 연결 리스트 예시</summary>
+
+    ![다중 연결 리스트 이미지](https://media.geeksforgeeks.org/wp-content/uploads/20220510111004/1-660x414.jpg)
+    Image source : GeeksforGeeks
+
+    </details>
+
 ---
+
 ## 스택
 - 정의 : 한쪽 끝에서만 데이터를 넣고 뺄 수 있는 제한된 접근 형태를 가진 LIFO형태의 선형 자료구조
 - 특징
     -  처음 들어온 데이터가 제일 아래 놓이고 그 위로 데이터가 쌓이는 형태를 가짐
     -  데이터의 삽입, 삭제가 스택의 제일 위에 위치한 데이터를 가리키는 Top에서 이루어짐
 - 예시
-    <details><summary></summary>
 
+    <details><summary>스택 예시</summary>
+
+    ![스택이미지](https://media.geeksforgeeks.org/wp-content/uploads/20240606180735/Stack-representation-in-Data-Structures-(1).webp)
+    Image source : GeeksforGeeks
 
     </details>
 
@@ -632,57 +660,434 @@
        -  작은 집합을 큰 집합에 합침으로써 트리의 높이가 지나치게 증가하는것을 방지
 - 예시
 
-
+---
 ## 그래프				
 ### 그래프 (Graph)	
-- 정의:
-- 특징:		
-#### 방향 그래프 (Directed Graph)		
-- 정의 : 
+- 정의 : 정점(Vertex)와 간선(Edge)로 구성된 자료구조로, 정점은 개별적인 객체나 요소를 나타내고, 간선은 정점들 간의 관계나 연결을 표현
 - 특징
+    -  간선의 방향성의 유무에 따라, 가중치에 유무에 따라 사용 분야가 달라짐
+#### 방향 그래프 (Directed Graph)		
+- 정의 : 각 간선에 방향성이 부여된 그래프
+- 특징
+    -  한 정점에서 다른 정점으로 향하는 연결을 간선을 통해 나타냄
+    -  시작 정점과 도착 정점을 명확히 구분하며, 같은 정점을 연결하는 2개의 간선의 방향이 다르다면 다른 간선으로 취급(ex - (u, v)와 (v, u)는 다른 간선)
+    -  방향 그래프에서 차수는 진입 차수(In-degree)와 진출 차수(Out-degree)로 나뉨
 - 장점
+    -  방향성을 통해 작업의 선후 관계, 데이터의 흐름 등을 효과적으로 표현 가능
 - 단점
+    -  방향성이 추가되어 그래프의 구조가 비교적 복잡하고, 같은 정점 간 연결이더라도 방향에 따라 다른 간선으로 인식하므로 메모리가 비교적 많이 필요할 수 있음
 - 예시
-#### 무방향 그래프 (Undirected Graph)		
+    <details><summary>방향 그래프 그림</summary>
+    
+    ![방향 그래프 그림](https://media.geeksforgeeks.org/wp-content/cdn-uploads/SCC1.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+
+#### 무방향 그래프 (Undirected Graph)
+- 정의 : 정점들이 간선에 의해 연결되어있으나, 간선에 방향성이 없는 그래프
+- 특징
+    -  두 개의 정점을 잇는 간선은 단 하나(ex - (u, v)와 (v, u)는 같은 간선)
+    -  무방향 그래프에서 차수는 정점에 연결된 간선의 개수와 같음
+- 장점
+    -  간선에 방향이 없어 비교적 구조가 단순함
+- 단점
+    -  관계의 방향성을 표현할 수 없어 선후 관계 등을 표현할 수 없음
+    -  같은 간선을 중복 저장하지 않도록 주의해야함(ex - (u, v)와 (v, u)는 같은 간선으로 중복 저장하지 않도록 주의)
+- 예시
+    <details><summary>무방향 그래프 그림</summary>
+    
+    ![무방향 그래프 그림](https://media.geeksforgeeks.org/wp-content/cdn-uploads/cycleGraph-300x156.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+
 #### 가중 그래프 (Weighted Graph)		
+- 정의 : 모든 간선에 가중치(weight)가 부여된 그래프
+- 특징
+    -  각 간선이 가중치를 가져 관계의 시간, 비용, 거리, 용량 등을 표현할 수 있음
+- 장점
+    -  가중치를 통해 관계를 수치적으로 표현할 수 있어, 네트워크의 특성 등을 모델링 할 수 있음
+    -  가중치를 통해 최단 경로, 최소 비용 경로 등을 찾을 때 활용 가능
+- 단점
+    -  가중치 개념이 추가되어 그래프의 구조가 비교적 복잡하고, 계산 복잡도가 높음  
+- 예시
+    <details><summary>가중 그래프 그림</summary>
+    
+    ![가중 그래프 그림](https://media.geeksforgeeks.org/wp-content/uploads/20220519165117/weightedgraph.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+
 #### 비가중 그래프 (Unweighted Graph)		
+- 정의 : 간선에 가중치가 없는 그래프
+- 특징
+    -  모든 간선이 단순 관계만을 나타내고, 간선 간의 우선순위가 없음
+- 장점
+    -  비교적 그래프의 구조가 단순해서 알고리즘이 단순해지고, 구현이 간단함
+- 단점
+    -  간선 간의 중요도나 비용을 표현할 수 없어, 관계나 우선순위를 포함한 데이터를 표현할 수 없음
+- 예시
+    <details><summary>비가중 그래프 그림</summary>
+    
+    ![비가중 그래프 그림](https://media.geeksforgeeks.org/wp-content/uploads/20220615160500/ug-300x286.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+
 ### 그래프 표현 방식			
-- 정의:
-- 특징:
+- 정의 : 그래프를 컴퓨터에서 다루기 위한 방식
+
 #### 인접 행렬 (Adjacency Matrix)		
+- 정의 : 모든 정점 간의 연결 관계를 2차원 배열(행렬)을 통해 표현하는 방식
+- 특징
+    -  정점의 수가 $n$개 일때, $n*n$의 크기를 가짐
+    -  그래프의 종류에 따른 표현 방식
+       -  무방향 그래프 - matrix[i][j]와 matrix[j][i]는 동일한 값을 가짐
+       -  방향 그래프 - matrix[i][j]와 matirx[j][i]는 다른 간선이므로 다른 값을 가질 수 있음
+       -  가중 그래프 - matrix[i][j]에 간선의 가중치를 저장
+- 장점
+    -  간선의 존재 여부를 빠르게 확인할 수 있음
+    -  2차원 배열을 사용하여 구현이 간단하고 직관적
+- 단점
+    -  정점의 수가 많을 경우, 메모리의 낭비가 큼
+    -  특정 정점에 연결된 모든 정점을 찾을 때 시간 복잡도가 높음
+- 예시
+    <details><summary>무방향 그래프 인접 행렬 그림</summary>
+    
+    ![무방향 그래프 인접 행렬 그림](https://media.geeksforgeeks.org/wp-content/uploads/20230727130331/Undirected_to_Adjacency_matrix.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+    <details><summary>방향 그래프 인접 행렬 그림</summary>
+    
+    ![방향 그래프 인접 행렬 그림](https://media.geeksforgeeks.org/wp-content/uploads/20240807102251/Directed_to_Adjacency_matrix.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+    <details><summary>가중 그래프 인접 행렬 그림</summary>
+    
+    ![가중 그래프 인접 행렬 그림](https://media.geeksforgeeks.org/wp-content/uploads/20240424142833/Adjacency-Matrix-for-Directed-and-Weighted-graph.webp)   
+    Image source : GeeksforGeeks
+    
+    </details>
 #### 인접 리스트 (Adjacency List)		
+- 정의 : 각 정점마다 그 정점과 직접 연결된 정점들의 리스트를 저장하는 방식
+- 특징
+    -  배열 혹은 해시테이블을 사용하여 구현
+    -  그래프의 종류에 따른 리스트 구현
+       -  무방향 그래프 - 정점 u의 리스트에 v가 포함되면, 정점 v의 리스트에도 u를 포함
+       -  방향 그래프 - 정점 u의 리스트에 v가 포함되어도, 정점 v의 리스트에 u를 포함하는것은 다름
+       -  가중 그래프 - 각 인접 정점과 함께 간선의 가중치 저장
+- 장점
+    -  간선의 수가 적을수록 인접 행렬에 비해 메모리 낭비가 줄어듬
+    -  특정 정점에 인접한 모든 정점을 쉽게 순회할 수 있어 탐색 알고리즘에 유리
+- 단점
+    -  두 정점 간에 간선이 존재하는지 확인하려면 리스트를 순회해야해서 시간 복잡도가 높음
+- 예시
+    <details><summary>무방향 그래프 인접 리스트 그림</summary>
+    
+    ![무방향 그래프 인접 리스트 그림](https://media.geeksforgeeks.org/wp-content/uploads/20230727154843/Graph-Representation-of-Undirected-graph-to-Adjacency-List.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+    <details><summary>방향 그래프 인접 리스트 그림</summary>
+    
+    ![방향 그래프 인접 리스트 그림](https://media.geeksforgeeks.org/wp-content/uploads/20230727155209/Graph-Representation-of-Directed-graph-to-Adjacency-List.png)   
+    Image source : GeeksforGeeks
+    
+    </details>
+    <details><summary>가중 그래프 인접 리스트 그림</summary>
+    
+    ![가중 그래프 인접 리스트 그림](https://media.geeksforgeeks.org/wp-content/uploads/20241022101833487388/graph-representation-of-directed-weighted-graph-to-adjacency-list-4.webp)   
+    Image source : GeeksforGeeks
+    
+    </details>
+
 ### 그래프 순회			
-- 정의:
-- 특징:
+- 정의 : 그래프 내의 모든 정점을 방문하는 과정
 #### 너비 우선 탐색 (Breadth-First Search, BFS)		
+- 정의 : 한 정점에서 시작하여 모든 정점을 탐색한 후, 그 다음 깊이의 정점들을 탐색하는 방법
+- 특징
+    -  주로 Queue를 사용하여 구현됨
+    -  그래프의 각 정점이 시작 정점으로부터 몇 레벨 떨어져있는지를 기준으로 탐색
+- 장점
+    -  모든 간선의 가중치가 동일할 때, 최단 경로를 보장함  
+- 단점
+    -  그래프가 넓게 퍼져 있을 경우, 많은 정점을 큐에 저장해야 해서 메모리 사용량이 증가할 수 있음
+- 예시
+    <details><summary>너비 우선 탐색 과정</summary>
+    
+    ![너비 우선 탐색 과정](https://blog.kakaocdn.net/dn/ddKphh/btq52wHI45p/1LkoIejc0b50lbvV8aAlX0/img.gif)   
+    Image source : https://currygamedev.tistory.com/10
+    
+    </details>
 #### 깊이 우선 탐색 (Depth-First Search, DFS)		
+- 정의 : 한 정점에서 시작하여 가능한 한 깊게 탐색한 후, 더 이상 깊게 탐색할 수 없으면 이전 정점으로 돌아가 반복하는 방법
+- 특징
+    -  스택 혹은 재귀 함수를 사용하여 구현
+    -  한 정점에서 가능한 한 깊게 탐색한 후, 이전 정점으로 돌아와 다음 경로 탐색
+- 장점
+    -  현 경로상의 정점들만 기억하면 돼서, 메모리 사용량이 비교적 적음
+    -  목표 정점이 깊은 단계에 있을 경우 BFS에 비해 빠르게 찾을 수 있음
+- 단점
+    -  최단 경로를 보장하지 않음
+    -  목표로 하는 정점이 없는 경로가 깊을 경우 탐색시간이 오래 걸릴 수 있음
+- 예시
+    <details><summary>깊이 우선 탐색 과정</summary>
+    
+    ![깊이 우선 탐색 과정](https://blog.kakaocdn.net/dn/TJafT/btq53RxBHk6/l5ZyDuc4WR7y4Dz4xLku2k/img.gif)   
+    Image source : https://currygamedev.tistory.com/10
+    
+    </details>
+
 ### 최단 경로 알고리즘		
-- 정의:
-- 특징:	
+- 정의 : 정점 간의 탐색을 최소화하는 알고리즘
 #### 다익스트라 알고리즘 (Dijkstra's Algorithm)		
+- 정의 : 가중치가 있는 그래프에서 시작 정점으로부터 다른 정점까지의 최단 경로를 찾는 Greedy 알고리즘
+- 특징
+    -  Greedy특성을 가져 매 단계에서 가까운 정점을 선택하여 그 정점을 통해 다른 정점으로의 최단 경로를 갱신
+    -  모든 간선의 가중치가 0 이상인(음수가 아닌) 그래프에 대해서만 제대로 동작함
+- 장점
+    -  효율적으로 최단 경로를 찾을 수 있음
+    -  구현이 비교적 간단
+- 단점
+    -  간선의 가중치가 음수인 경우 최단 경로를 정확히 찾지 못함
+    -  큰 규모의 그래프에서는 메모리를 많이 사용하고, 다른 알고리즘에 비해 느릴 수 있음
+- 예시
+    <details><summary>다익스트라 알고리즘 동작 방식</summary>
+
+    ![다익스트라 알고리즘](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)   
+    Image source : https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:Dijkstra_Animation.gif
+
+    </details>
+
 #### 벨만-포드 알고리즘 (Bellman-Ford Algorithm)		
+- 정의 : 단일 출발점에서 최단 경로를 찾는 알고리즘, 모든 간선을 반복적으로 검사하면서 최단 거리를 점진적으로 갱신
+- 특징
+    -  각 단계에서 모든 간선을 반복적으로 검사하여 전체 간선을 고려한 최단 경로를 탐색
+    -  음의 가중치가 있는 그래프에서도 동작
+- 장점
+    -  음의 가중치 간선을 처리 가능함
+- 단점
+    -  시간 복잡도가 $O(VE)$로 정점과 간선의 수가 많아질수록 실행 시간이 급격히 증가
+    -  음의 가중치 사이클이 존재할 경우 비용이 무한하게 감소할 수 있어 주의 필요
+- 예시
+    <details><summary>벨만-포드 알고리즘 동작 방식</summary>
+
+    ![벨만-포드 알고리즘](https://upload.wikimedia.org/wikipedia/commons/7/77/Bellman%E2%80%93Ford_algorithm_example.gif)   
+    Image source : https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:Bellman%E2%80%93Ford_algorithm_example.gif
+
+    </details>
+
 #### 플로이드-워셜 알고리즘 (Floyd-Warshall Algorithm)		
+- 정의 : 가중치가 있는 그래프에서 모든 정점 쌍 간의 최단 경로를 찾는 알고리즘
+- 특징
+    -  그래프 내 모든 정점 쌍 $(u, v)$에 대해 최단 경로 길이 계산
+    -  그래프 내 모든 정점을 중간 정점으로 하나씩 고려하면서 최단 경로를 갱신
+    -  음의 가중치가 있는 그래프에서도 동작
+- 장점
+    -  여러 쌍의 최단 경로가 필요한 경우 효율적
+- 단점
+    -  시간 복잡도가 $O(V^3)$으로 정점의 수가 많아질수록 실행 시간이 급격히 증가
+    -  모든 정점 쌍 간 거리를 저장해야 해, 메모리 사용량이 많음
+    -  음의 가중치 사이클이 존재할 경우 비용이 무한하게 감소할 수 있어 주의 필요
+- 예시
+    <details><summary>플로이드-워셜 알고리즘 동작 방식</summary>
+    
+    ![플로이드-워셜 알고리즘 동작 방식](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Floyd-Warshall_example.svg/800px-Floyd-Warshall_example.svg.png?20130515133924)   
+    Image source : https://commons.wikimedia.org/wiki/File:Floyd-Warshall_example.svg
+
+    </details>
+
 ### 최소 신장 트리 (Minimum Spanning Tree)		
-- 정의:
-- 특징:	
+- 정의 : 그래프의 모든 정점을 포함하면서, 연결하는 간선의 가중치의 합이 최소가 되도록 선택된 트리
+- 특징	
+    -  정점의 개수가 $N$개 일때, 간선의 개수는 $N-1$개
+    -  하나의 그래프에서 연결되지 서로 연결되지 않은 정점 집합이 존재하면, 각 집합마다 최소 신장 트리가 존재
+    -  그래프의 모든 간선 가중치가 서로 다를 경우, 최소 신장 트리가 유일하게 하나만 존재
+    -  동일한 가중치를 가진 간선이 여러개 있는 경우, 최소 신장 트리가 여러개 존재할 수 있음
 #### 크루스칼 알고리즘 (Kruskal's Algorithm)		
+- 정의 : 간선을 가중치가 낮은 순서대로 선택하며, 선택된 간선이 사이클을 형성하지 않도록 주의하면서 신장 트리를 구축하는 최소 신장 트리 알고리즘
+- 특징
+    -  모든 간선을 가중치가 낮은 순서대로 정렬해두고, 매 단계에서 현재 가중치가 가장 낮은 간선을 선택
+    -  정점 중심이 아닌 간선 중심으로, 모든 간선을 하나씩 고려하며 트리에 추가 여부를 결정
+- 장점
+    -  간선을 미리 정렬하여 가중치가 낮은 간선부터 선택하므로, Greedy 방법이 효과적
+- 단점
+    -  간선의 수가 많은 그래프의 경우, 간선 정렬 단계가 시간이 많이 소요될 수 있음
+    -  비연결 그래프에서는 분리된 집합마다 별도로 알고리즘을 실행해야 해, 복잡성이 증가할 수 있음
+- 예시
+    <details><summary>크루스칼 알고리즘 동작 방식</summary>
+    
+    ![크루스칼 알고리즘 동작 방식](https://mblogthumb-phinf.pstatic.net/20160407_48/power2845_14600311537359WJ9G_GIF/MST_kruskal_en.gif?type=w2)   
+    Image source : https://blog.naver.com/power2845/220677279125?trackingCode=blog_bloghome_searchlist
+
+    </details>
+
 #### 프림 알고리즘 (Prim's Algorithm)		
+- 정의 : 하나의 시작 정점에서 시작하여, 트리에 포함되지 않은 정점들 중에서 현재 트리에 연결된 간선 중 가중치가 가장 작은 간선을 선택하여 확장해 나가는 알고리즘
+- 특징
+    -  정점 중심으로 동작하여, 현재 트리에 포함된 정점들과 연결된 간선들 중 가장 작은 가중치를 가진 간선을 선택하여 트리를 확장
+- 장점
+    -  간선의 수가 많은 밀집 그래프에서 효율적으로 동작
+    -  그래프에 새로운 정점이나 간선이 추가될 때, 트리를 부분적으로 업데이트 할 수 있음
+- 단점
+    -  비연결 그래프에서는 분리된 집합마다 별도로 알고리즘을 실행해야 해, 복잡성이 증가할 수 있음
+- 예시
+    <details><summary>프림 알고리즘 동작 방식</summary>
+    
+    ![프림 알고리즘 동작 방식](https://upload.wikimedia.org/wikipedia/en/9/96/Prim-animation.gif?20101018030810)   
+    Image source : https://en.wikipedia.org/wiki/File:Prim-animation.gif
+
+    </details>
+
 ### 위상 정렬 (Topological Sorting)			
-- 정의:
-- 특징:
+- 정의 : 비순환 방향 그래프에서 모든 정점을 일렬로 정렬하는 방법
+- 특징
+    -  간선 $(u, v)$에 대해 정점 $u$가 $v$보다 앞으로 오도록 배열하여, 그래프 내의 모든 선행 관계를 만족하는 정렬
+    -  의존성이 있는 작업들을 올바른 순서로 수행하기 위해 사용
+    -  방향성이 있고, 사이클이 없는 그래프에서만 사용 가능
+    -  그래프 내의 선후 관계가 일부 정점들 사이에서만 제한적이라면, 여러 개의 위상 정렬을 가질 수 있음
+- 장점
+    -  의존성이 있는 작업들을 올바른 순서로 처리 가능하여, 빌드 시스템, 프로젝트 관리 등에 사용 가능
+    -  그래프가 DAG(Directed Acyclic Graph)인지 확인 가능
+- 단점
+    -  DAG가 아닌 경우 사용 불가
+    -  여러 개의 위상 정렬을 가질 수 있어, 특정한 순서를 보장하지 않음
+- 예시
+    <details><summary>위상 정렬 동작 방식</summary>
+    
+    ![위상 정렬 동작 방식](https://inginious.org/course/competitive-programming/graphs-toposort/anim.gif)   
+    Image source : https://inginious.org/course/competitive-programming/graphs-toposort?lang=es
+
+    </details>
+
 ### 강결합 요소 탐색 (Strongly Connected Components)			
-- 정의:
-- 특징:
+- 정의 : 방향성 그래프에서 모든 정점 쌍 $(u, v)$에 대해 정점 $u$에서 $v$로 가는 경로와 정점 $v$에서 $u$로 가는 경로가 존재하는 최대의 정점 집합을 찾는 과정
+- 특징
+    -  무방향 그래프에서는 강결합 요소 개념이 의미가 없어 방향 그래프에만 적용 가능
+    -  단일 정점도 강결합 요소가 될 수 있음
+    -  원래 그래프를 서로 독립적인 여러 부분 그래프로 분할, 부분 그래프 내부는 서로 강하게 연결되어 있지만, 다른 부분 그래프와는 약하게 연결
+- 장점
+    -  복잡한 그래프를 여러 개의 독립적인 강결합 요소로 분할함으로써, 각 요소별로 문제를 해결할 수 있음
+- 단점
+    -  무방향 그래프에서는 강결합 요소의 개념이 적용되지 않아 사용 불가
+- 예시
+    <details><summary>Tarjan algorithm 동작 방식</summary>
+    
+    ![Tarjan algorithm 동작 방식ㅇ](https://upload.wikimedia.org/wikipedia/commons/6/60/Tarjan%27s_Algorithm_Animation.gif)   
+    Image source : https://en.wikipedia.org/wiki/File:Tarjan%27s_Algorithm_Animation.gif
+
+    </details>
+
 ### 이분 그래프 탐색 (Bipartite Graph Check)			
-- 정의:
-- 특징:
+- 정의 : 정점들이 두 개의 서로 독립적인 집합으로 나눌 수 있으며, 각 간선이 한 집합의 정점과 다른 집합의 정점을 연결하는 그래프
+- 특징
+    -  그래프의 정점들을 두 그룹으로 분할했을 때, 같은 그룹 내의 정점들 사이에는 간선이 존재하지 않음
+- 장점
+    -  두 개의 독립적인 집합 간의 관계를 표현하는데 효율적
+- 단점
+    -  복잡한 관계나 삼중관계를 표현하지 못함
+    -  그래프가 이분 그래프인지 사전에 확인해야 함
+- 예시
+    <details><summary>이분 그래프 예시</summary>
+    
+    ![이분 그래프 예시](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Complete_bipartite_graph_K32-001.svg/220px-Complete_bipartite_graph_K32-001.svg.png)   
+    Image source : https://commons.wikimedia.org/wiki/File:Complete_bipartite_graph_K32-001.svg
+
+    </details>
+
 ## 해시
 - 정의:
 - 특징:				
 ### 해시 테이블 (Hash Table)			
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
+
 ### 해시 함수 (Hash Function)			
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
+
 ### 충돌 처리 (Collision Handling)			
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
+
 #### 개방 주소법 (Open Addressing)		
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
+
 #### 체이닝 (Chaining)		
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
+
 ### 동적 크기 조정 (Dynamic Resizing)			
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
+
 ### 블룸 필터 (Bloom Filter)			
+- 정의 :
+- 특징
+- 장점
+- 단점
+- 예시
+    <details><summary></summary>
+    
+    ![]()   
+    Image source : 
+
+    </details>
