@@ -14,8 +14,34 @@
 - 정의
     -  컴퓨터 시스템 내에서 데이터와 명령어를 저장하고, 필요할 때 접근할 수 있도록 하는 하드웨어 장치
     -  주기억장치(Primary memory)와 보조기억장치(Secondary Storage)로 구분된다
+- 종류
+    -  주기억장치
+       -  ROM(Read Only Memory) - 컴퓨터 전원이 끊어져도 기록된 데이터들이 소멸하지 않는 비휘발성 메모리로, BIOS와 같은 주요 데이터를 저장한다
+       -  RAM(Random Access Memory) - 전원이 끊어지면 기록된 데이터들이 소멸하는 휘발성 메모리이며, 읽고 쓰기가 가능함 
+    -  보조기억장치
+       -  HDD(Hard Disk Drive) - 자기 디스크를 사용해 데이터를 저장하는 장치, 회전하는 플래터와 읽기/쓰기 헤더를 이용함
+       -  SDD(Solid State Drive) - 반도체를 이용하여 데이터를 저장하는 장치, 플래시 메모리를 사용하고, HDD와 비교해 작교 가벼우며 처리 속도가 빠름
+       -  USB(Universal Serial Bus) - USB 포트에 꽂아 사용하는 이동형 저장장치, 플래시 메모리를 사용함
 #### 입출력 장치 (I/O Devices) [바로가기](#입출력-시스템-io-systems)
+- 정의
+    -  컴퓨터 시스템과 외부 환경 간의 데이터 교환을 가능하게 하는 하드웨어 장치
+- 종류
+    -  입력장치 - 키보드, 마우스, 터치스크린, 스캐너 등
+    -  출력장치 - 모니터, 프린터, 스피커 등
+    -  입출력장치 - 터치스크린, 모뎀, 네트워크 카드, 외장 하드 등
 ### 폰노이만 아키텍처 (Von Neumann Architecture) vs. 하버드 아키텍처 (Harvard Architecture)	
+- 폰 노이만 아키텍쳐
+    -  프로그램과 데이터를 동일한 메모리에 저장하고, CPU가 메모리에서 명령어를 순차적으로 가져와 실행하는 컴퓨터 설계 모델
+    -  구성 요소 - CPU, Memory, I/O Devices, Bus
+    -  특징
+       -   프로그램과 데이터를 동일한 메모리에 저장함으로써, 프로그램의 수정과 데이터의 접근이 용이
+       -   명령어를 순차적으로 처리함으로써, 프로그램의 흐름을 예측 가능하게 함
+    -  작동 원리   
+        1. 페치(Fetch) - 프로그램 카운터(PC, Program Counter)에 저장된 메모리 주소에서 명령어를 가져옴
+        2. 디코드(Decode) - 가져온 명령어의 연산 코드(OP code)를 분석하고, 필요한 데이터의 연산 방식을 파악
+        3. 실행(Excute) - ALU를 사용하여 산술 또는 논리 연산을 수행하고, 결과를 레지스터나 메모리에 저장
+        4. 반복 - 다음 명령어의 주소를 프로그램 카운터에 업데이트하고, 다시 페치 단계로 돌아감
+- 하버드 아키텍쳐
 ### 컴퓨터 설계의 기본 원리 (Fundamental Principles of Computer Design)	
 --- 	
 ## 명령어 집합 구조(ISA, Instruction Set Architecture)		
@@ -37,6 +63,9 @@
 --- 	
 ## 중앙처리장치 (CPU, Central Processing Unit)		
 ### CPU의 구조와 구성 요소 (CPU Architecture and Components)	
+          -  산술 논리 장치(ALU, Arithmetic Logic Unit) - 산술 연산과 논리 연산 수행
+          -  제어 장치(Control Unit) - 명령어 해석, ALU와 메모리 간 데이터 흐름 제어
+          -  레지스터(Register) - CPU 내부에서 데이터를 일시적으로 저장
 #### 산술 논리 장치(ALU, Arithmetic Logic Unit)
 #### 레지스터 (Registers)
 #### 제어 유닛(Control Unit)
