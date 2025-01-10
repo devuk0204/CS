@@ -663,8 +663,11 @@ Image source : https://code-lab1.com/%EC%84%B8%EA%B7%B8%EB%A9%98%ED%85%8C%EC%9D%
   - 스타트 비트와 스탑 비트를 이용하여 데이터의 전송 시작과 끝을 알림
 - [DMA](#dmadirect-memory-access)
 --- 		
-## 프로세서 설계 (Processor Design)		
+## 프로세서 설계 (Processor Design)	
+- 컴퓨터의 CPU를 구성하는 하드웨어 구조와 그 동작 방식을 정의하는 과정	
+- 효율적인 데이터 처리, 빠른 명령어 실행, 낮은 전력 소모 등을 목표로 함
 ### 데이터 경로 설계 (Datapath Design)	
+- 프로세서 내부에서 데이터가 이동하고 처리되는 경로를 설계하는 과정
 #### 단일 사이클(Single-Cycle Design)
 #### 멀티 사이클(Multi-Cycle Design)
 ### 제어 유닛 설계 (Control Unit Design)	
@@ -672,15 +675,66 @@ Image source : https://code-lab1.com/%EC%84%B8%EA%B7%B8%EB%A9%98%ED%85%8C%EC%9D%
 #### 마이크로프로그램 제어 (Microprogrammed Control)
 ### 파이프라인 처리 (Pipelining)	
 #### 파이프라인의 개념과 이점
+- 프로세서 작업을 여러 단계로 분할하여 동시에 수행함으로써 처리 속도를 향상시키는 기술
+- 일반적인 RISC 아키텍처에서 파이프라인은 5단계로 구성
+  1. Instruction Fetch(IF) - 메모리에서 명령어를 가져오는 단계
+  2. Instruction Decode(ID) - 명령어를 읽고 해독, 레지스터를 읽는 단계
+  3. Excute(EX) - 연산 수행과 주소 계산을 하는 단계
+  4. Memory Access(MEM) - 필요에 따라 메모리에서 데이터를 읽거나 쓰는 단계
+  5. Write Back(WB) - 연산 결과를 레지스터에 기록하는 단계
+![파이프라인](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Fivestagespipeline.png/300px-Fivestagespipeline.png)   
+Image source : https://commons.wikimedia.org/wiki/File:Fivestagespipeline.png
+- 이점
+  - 여러 명령어가 동시에 다른 단계에서 병렬 처리되도록 함으로써, 초당 처리할 수 있는 명령어 수가 증가하여 전체 시스템의 처리량 및 처리 속도 향상
+  - 여러 명령어가 동시에 처리되어 CPU 자원의 활용도가 높아짐
 #### 위험 요소(Hazards)
+- 파이프라인을 구성하는 여러 단계가 동시에 실행될 때 발생할 수 있는 문제
+- 명령어의 순차적 처리에 간섭을 일으켜 성능을 저하시킬 수 있음
 ##### 데이터 위험(Data Hazards)
+- 명령어 간의 데이터 종속성으로 인해 발생하는 위험
+- 한 명령어가 이전 명령어의 결과를 필요로 할 때, 그 결과가 아직 처리되지 않아 발생하는 문제
+- 원인
+  - Read After Write(RAW)
+    - 명령어가 이전 명령어가 쓰는 레지스터나 메모리 값을 읽어야 할 때 발생
+    - 이전 명령어의 연산 결과값을 필요로 하는데, 연산이 완료되지 않아 올바른 값을 읽지 못하는 상황
+  - Write After Write(WAW)
+    - 두 개 이상의 명령어가 동일한 레지스터나 메모리 위치에 값을 쓸 때 발생
+    - 두 번째 명령어가 첫 번째 명령어의 완료 전에 값을 덮어써 최종 결과가 달라지는 상황
+  - Write After Read(WAR)
+    - 한 명령어가 값을 읽은 후, 다른 명령어가 그 값을 덮어쓸 때 발생
+    - 어느 명령어가 먼저 끝나느냐에 따라 값이 달라지는 상황
+- 해결 기법
+  - 포워딩(Forwarding)
+    - 이전 명령어가 연산을 완료하기 전에 그 결과를 다음 명령어로 전달하여 위험을 방지
+    - ALU의 출력이 레지스터에 저장되기 전에, 다음 명령어의 입력으로 전달
+  - 파이프라인 스톨(Pipeline Stall)
+    - 파이프라인의 일부 단계를 일시적으로 중단하여 위험을 해결
+    - 위험이 발생하는 시점에 파이프라인에 버블(Bubble)을 삽입하여 필요한 데이터가 준비될 때 까지 다음 명령어의 실행을 지연
 ##### 제어 위험(Control Hazards)
+- 분기 명령어(Branch Instruction)나 점프 명령어(Jump Instruction)로 인해 파이프라인의 흐름이 변경될 때 발상해는 위험
+- 원인
+  - 분기 명령어에 의해 이미 처리된 명령이 무효화 되는 상황
+- 해결 기법
+  - 분기 예측(Branch Prediction)
+    - 분기 명령어의 결과를 예측하여 파이프라인의 흐름을 유지하는 기법
+    - 예측된 분기 방향에 따라 명령어를 미리 페치하여, 예측이 맞으면 유지하고, 틀리면 잘못된 명령어를 취소하고 올바른 분기 방향으로 재설정
+  - 분기 지연 슬롯(Branch Delayed Slot)
+    - 분기 명령어 다음에 오는 명령어를 no-op나 분기문과 독립적인 명령어를 수행하도록 순서를 재배치하는 기법
 ##### 구조적 위험(Structural Hazards)
+- 파이프라인의 여러 단계가 동일한 하드웨어 자원을 동시에 요구할 때 발생하는 위험
+- 원인
+  - 여러 파이프라인 단계가 메모리에 동시에 접근하는 등 동일한 자원을 공유할 때 발생
+- 해결 기법
+  - 동일한 하드웨어 자원을 동시에 사용할 수 있도록 하드웨어 자원을 늘리는 방법
 --- 	
 ## 성능 평가와 최적화 (Performance Evaluation and Optimization)		
 ### 성능 측정 지표 (Performance Metrics)	
 #### 처리량(Throughput), 응답 시간(Response Time), 클럭 주기(Clock Cycle)
 ### Amdahl의 법칙 (Amdahl's Law)	
+- 컴퓨터 시스템의 일부를 개선할 때, 전체적으로 얼마만큼의 최대 성능 향상이 있는지 계산
+- 주로 프로세서 개수에 따라 시스템 성능이 어느정도 향상되는지 계산하는데 사용
+- $\frac{1}{(1-P)+\frac{P}{S}}$   
+$P$는 병렬 처리가 가능한 부분, $S$는 프로세서 개수
 ### 시스템 성능 최적화 (System Performance Optimization)	
 #### 캐시 최적화(Cache Optimization)
 #### 분기 예측(Branch Prediction)
